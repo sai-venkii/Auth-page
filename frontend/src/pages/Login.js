@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./style.css";
 import { Link } from "react-router-dom";
 
-function login() {
+function Login() {
+  const [username,setUsername] = useState('');
+  const [password,setPassword] = useState('');
+  function handleSubmit(event){
+    event.preventDefault();
+    
+  }
   return (
     <div>
       <div class="wrapper">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <h1>Login</h1>
           <div class="input-box">
-            <input type="text" placeholder="Username" required />
+            <input type="text" placeholder="Username" required onChange={e=>setUsername(e.target.value)}/>
           </div>
           <div class="input-box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Password" required onChange={e=>setPassword(e.target.value)}/>
           </div>
           <div class="remember-forgot">
             <label>
               <input type="checkbox" />
               Remember me
             </label>
-            <a href="#">Forgot password?</a>
           </div>
 
           <button type="submit" class="btn">
             Sign in
           </button>
-
+          <div class="remember-forgot"><Link to="/forgotPassword">Forgot Password</Link></div>
           <div class="register-link">
             <p>
               Don't have an account? <Link to="/signup">Signup</Link>
@@ -37,4 +42,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

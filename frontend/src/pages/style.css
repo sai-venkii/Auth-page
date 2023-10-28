@@ -41,11 +41,12 @@ body{
     color:aliceblue;
     margin-bottom:30px;
     padding: 20px 45 px 20 px;
+    padding-left: 20px;
 }
 .input-box input::placeholder{
     color:#fff;
     text-align:left;
-    padding-left:20px;
+    
 }
 .wrapper.remember-forgot{
     display:flex;
@@ -82,7 +83,7 @@ body{
 .wrapper.register-link{
     font-size:14.5px;
     text-align:centre;
-    margin-top:20px 0 15px;
+    margin-top:30px 0 15px;
 }
 .register-link p a{
     color:#fff;
@@ -106,4 +107,37 @@ select {
 select option {
     background-color: white;
     color: #333;
+}
+
+.signup-profile-pic__container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.signup-profile-pic {
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    object-fit: cover;
+    height: 100px;
+}
+
+.add-picture-icon {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: green;
+    background: white;
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-right: 10px;
+    filter: invert(1);
 }
