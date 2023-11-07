@@ -1,12 +1,20 @@
-const Pool=require('pg').Pool;
-require('dotenv').config();
+const sql = require('mysql2');
 
-const pool = new Pool({
+const pool = new sql.createPool({
     host: 'localhost',
-    port: '5432',
-    user: 'postgres',
-    password: 'root',
-    database: 'chatapp'
+    user: 'root',
+    password: '',
+    database: 'chatapp',
+    connectionLimit: 10
 });
-pool.query('SELECT * FROM USERS');
+pool.getConnection((err,connection)=>{
+    if(err){
+        console.log(err);
+    }
+    else if(connection){
+        console.log("Pool is Connected");
+        connection.release();
+        return;
+    }
+})
 module.exports=pool
